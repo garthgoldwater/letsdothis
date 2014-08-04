@@ -1,0 +1,20 @@
+<h3>Plan stuff with groups, no account necessary</h3>
+
+<strong>Make a new room</strong>
+<div class="room-sign-up">
+  <%= form_for @room do |form| %>
+    <div>
+      <%= form.label :name, "Room name: " %>
+      <%= form.text_field :name %>
+    </div>
+    <div>
+      <%= form.label :password, "Password: " %>
+      <%= form.password_field :password %>
+    </div>
+    <div>
+      <%= form.label :confirmation, "Confirm Password: " %>
+      <%= form.password_field :confirmation %>
+    </div>
+    <div><%= form.submit %></div>
+  <% end %>
+</div>
