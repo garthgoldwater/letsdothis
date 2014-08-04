@@ -15,7 +15,13 @@ class RoomSessionsController < ApplicationController
   end
 
   def destroy
-    cookies.signed[room.id] = nil
+    leave_room
     redirect_to root_path
+  end
+
+  private
+
+  def leave_room
+    cookies.signed[room.id] = nil
   end
 end
