@@ -6,7 +6,6 @@ class RoomSessionsController < ApplicationController
   def create
     room = Room.find(params[:room_id])
     if room.authenticate(params[:password])
-      cookies.signed[room.id] = params[:handle]
       redirect_to room
     else
       flash[:warning] = "Couldn't sign into room"
@@ -24,4 +23,12 @@ class RoomSessionsController < ApplicationController
   def leave_room
     cookies.signed[room.id] = nil
   end
+<<<<<<< HEAD
+=======
+
+  def log_in(handle, room)
+    cookies.signed[room.id] = handle
+    handle = room.handles.create(name: handle)
+  end
+>>>>>>> Force users to log in to chat rooms
 end
