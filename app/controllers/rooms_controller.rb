@@ -6,9 +6,17 @@ class RoomsController < ApplicationController
 
   def show
     @room = Room.find(params[:id])
+    @handles = @room.handles
+    if ! allowed_to_visit?(@room)
+      redirect_to [:new, @room, :room_session]
+    end
   end
 
   private
+
+  def allowed_to_visit?(room)
+    cookies.signed[room.id]
+  end
 
   def room_params
     params.require(:room).permit(
