@@ -5,27 +5,18 @@ class RoomSessionsController < ApplicationController
 
   def create
     room = Room.find(params[:room_id])
-    if room && room.authenticate(params[:password])
+    if room.authenticate(params[:password])
       cookies.signed[room.id] = params[:handle]
       redirect_to room
     else
-      flash.now[:warning] = "Couldn't sign into room"
-      redirect_to root_path
+      flash[:warning] = "Couldn't sign into room"
+      redirect_to [:new, room, :room_session]
     end
   end
 
   def destroy
     cookies.signed[room.id] = nil
+
     redirect_to root_path
   end
-
-  private
-
-  # def room_session_params
-  #   params.require(:room_session).permit(
-  #     :password,
-  #     :handle,
-  #     :room_id,
-  #     )
-  # end
 end

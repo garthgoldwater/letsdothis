@@ -1,1 +1,5 @@
+<nav>
+  <%= link_to "Log Out of ' #{@room.name} '", [@room, :room_sessions], method: :destroy %>
+</nav>
+
 <h3><%= @room.name %></h3>
