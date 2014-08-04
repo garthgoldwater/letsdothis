@@ -6,6 +6,9 @@ class RoomsController < ApplicationController
 
   def show
     @room = Room.find(params[:id])
+    if !cookies.signed[@room.id]
+      redirect_to [:new, @room, :room_session]
+    end
   end
 
   private

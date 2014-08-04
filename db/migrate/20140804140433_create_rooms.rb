@@ -4,7 +4,7 @@ class CreateRooms < ActiveRecord::Migration
       t.string :name, unique: true, null: false
       t.string :password_digest, null: false
       t.boolean :private, null: false, default: true
-      t.timestamps
+      t.timestamps null: false
     end
   end
 end
