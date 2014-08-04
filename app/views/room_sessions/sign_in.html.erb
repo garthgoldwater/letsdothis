@@ -1,7 +1,0 @@
-<h3>Enter password to get into the <%= @room.name %> room</h3>
-  <%= form_tag controller: room_sessions, action: create %>
-  <%= label_tag :handle, "The screenname you'd like in this room: " %>
-  <%= text_field_tag :handle %>
-  <%= label_tag :password, "Room Password: "%>
-  <%= password_field_tag :password %>
-<% end %>
