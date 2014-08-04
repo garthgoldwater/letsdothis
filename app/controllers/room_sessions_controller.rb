@@ -16,7 +16,6 @@ class RoomSessionsController < ApplicationController
 
   def destroy
     cookies.signed[room.id] = nil
-
     redirect_to root_path
   end
 end
