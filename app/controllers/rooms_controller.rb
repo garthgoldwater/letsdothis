@@ -13,8 +13,14 @@ class RoomsController < ApplicationController
 
   private
 
+  def current_handle
+    @current_handle = session[@room.id]
+  end
+
+  helper_method :current_handle
+
   def allowed_to_visit?(room)
-    cookies.signed[room.id]
+    session[room.id]
   end
 
   def room_params

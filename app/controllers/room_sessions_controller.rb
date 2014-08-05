@@ -5,30 +5,39 @@ class RoomSessionsController < ApplicationController
 
   def create
     room = Room.find(params[:room_id])
-    if room.authenticate(params[:password])
+    if logged_in?(room)
       redirect_to room
     else
-      flash[:warning] = "Couldn't sign into room"
-      redirect_to [:new, room, :room_session]
+      if room.authenticate(params[:password])
+        log_in(params[:handle], room)
+        redirect_to room
+      else
+        flash[:warning] = "Probably you got the password wrong"
+        redirect_to [:new, room, :room_session]
+      end
     end
   end
 
   def destroy
-    leave_room
+    room = Room.find(params[:room_id])
+    leave(room)
     redirect_to root_path
   end
 
   private
 
-  def leave_room
-    cookies.signed[room.id] = nil
+  def logged_in?(room)
+    session[room.id]
+  end
+
+  def leave(room)
+    session[room.id] = nil
   end
 <<<<<<< HEAD
 =======
 
   def log_in(handle, room)
-    cookies.signed[room.id] = handle
-    handle = room.handles.create(name: handle)
+    session[room.id] = handle
   end
 >>>>>>> Force users to log in to chat rooms
 end

@@ -1,10 +1,7 @@
 <nav>
-  <%= link_to "Log out of ' #{@room.name} '", [@room, :room_sessions], method: :destroy %>
+  <%= link_to "Log out of ' #{@room.name} '", [@room, :room_session], method: :delete %>
 </nav>
 
-<h3><%= @room.name %></h3>
+<%= current_handle %>
 
-<strong>Signed In:</strong>
-<div>
-  <ul><%= render @handles %></ul>
-</div>
+<h3><%= @room.name %></h3>
