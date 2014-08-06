@@ -6,6 +6,8 @@ class RoomsController < ApplicationController
 
   def show
     @room = Room.find(params[:id])
+    @message = Message.new
+    @messages = @room.messages.recent_last
     if ! current_session.logged_in?(@room)
       redirect_to [:new, @room, :room_session]
     end

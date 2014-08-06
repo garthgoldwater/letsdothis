@@ -3,5 +3,6 @@ Rails.application.routes.draw do
 
   resources :rooms, only: [:create, :show] do
     resource :room_session, only: [:new, :create, :destroy]
+    resources :messages, only: [:create]
   end
 end
