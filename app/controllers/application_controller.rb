@@ -6,13 +6,15 @@ class ApplicationController < ActionController::Base
   private
 
   def current_session
-    room_id = params[:room_id] || params[:id]
     RoomSession.new(session, Room.find(room_id))
   end
 
   def current_handle
-    room_id = params[:room_id] || params[:id]
-    session[room_id]
+      session[room_id]
+  end
+
+  def room_id
+    params[:room_id] || params[:id]
   end
 
   helper_method :current_session
