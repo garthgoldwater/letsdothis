@@ -4,7 +4,7 @@ class RoomSession
   end
 
   def enter_room(room, handle)
-    if handle && handle !=""
+    if handle.present?
       @session[room.id] = handle
     end
   end
