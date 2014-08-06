@@ -6,7 +6,8 @@ class RoomsController < ApplicationController
 
   def show
     @room = Room.find(params[:id])
-    if ! allowed_to_visit?(@room)
+    room_session = RoomSession.new(session, @room, session[@room.id])
+    if ! room_session.allowed_to_visit?(@room)
       redirect_to [:new, @room, :room_session]
     end
   end
@@ -18,10 +19,6 @@ class RoomsController < ApplicationController
   end
 
   helper_method :current_handle
-
-  def allowed_to_visit?(room)
-    session[room.id]
-  end
 
   def room_params
     params.require(:room).permit(
