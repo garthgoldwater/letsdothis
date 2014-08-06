@@ -3,5 +3,5 @@ class Room < ActiveRecord::Base
 
   has_many :messages, dependent: :destroy
 
-  validates :name, presence: true, uniqueness: true, allow_blank: false
+  validates :name, presence: true, uniqueness: true
 end
