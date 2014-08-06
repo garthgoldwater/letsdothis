@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 20140806192713) do
   enable_extension "plpgsql"
 
   create_table "messages", force: true do |t|
-    t.integer  "room_id"
+    t.integer  "room_id",    null: false
     t.text     "body",       null: false
     t.string   "handle",     null: false
     t.datetime "created_at", null: false
