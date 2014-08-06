@@ -1,7 +1,16 @@
 <nav>
   <%= link_to "Log out of ' #{@room.name} '", [@room, :room_session], method: :delete %>
+  <h3> signed in as: <%= current_handle %> </h3>
 </nav>
 
-<%= current_handle %>
+<section class="messages">
+  <%= render @messages %>
+</section>
 
-<h3><%= @room.name %></h3>
+<div>
+  <%= form_for [@room, @message] do |form| %>
+    <%= form.label :body, "Message: " %>
+    <%= form.text_area :body %>
+    <%= form.submit "send" %>
+  <% end %>
+</div>
