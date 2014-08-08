@@ -1,6 +1,7 @@
 <nav>
-  <%= link_to "Log out of ' #{@room.name} '", [@room, :room_session], method: :delete %>
-  <h3> signed in as: <%= current_handle %> </h3>
+  Topic: <%= @topic.title %> in the <%= link_to "' #{@room.name} ' room", @room %>
+    signed in as: <%= current_handle %>
+    <%= link_to "Log Out of this room", [@room, :room_session], method: :delete %>
 </nav>
 
 <section class="messages">
