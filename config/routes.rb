@@ -6,5 +6,9 @@ Rails.application.routes.draw do
     resources :messages, only: [:create]
     resources :topics, only: [:create, :show]
   end
-  resources :topics, only: [:show]
+
+  resources :topics, only: [:show] do
+    resources :messages, only: [:create]
+    resources :topics, only: [:create, :show]
+  end
 end

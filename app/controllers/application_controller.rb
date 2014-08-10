@@ -6,11 +6,23 @@ class ApplicationController < ActionController::Base
   private
 
   def current_session
-    RoomSession.new(session, Room.find(room_id))
+    @room_session ||= RoomSession.new(session, Room.find(find_room_id))
   end
 
   def current_handle
-      session[room_id]
+    session[find_room_id]
+  end
+
+  def find_room_id
+    room_id || find_topic_room_id
+  end
+
+  def find_topic_room_id
+    find_topic.room_id
+  end
+
+  def find_topic
+    Topic.find_by(id: params[:topic_id])
   end
 
   def room_id
@@ -19,4 +31,5 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_session
   helper_method :current_handle
+  helper_method :find_topic
 end

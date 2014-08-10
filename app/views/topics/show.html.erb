@@ -1,15 +1,16 @@
 <nav>
   Topic: <%= @topic.title %> in the <%= link_to "' #{@room.name} ' room", @room %>
+  Parent Topic: <%= link_to @topic.title, @topic.topic_parent %>
     signed in as: <%= current_handle %>
-    <%= link_to "Log Out of this room", [@room, :room_session], method: :delete %>
+  <%= link_to "Log Out of this room", [@room, :room_session], method: :delete %>
 </nav>
 
 <section class="messages">
-  <%= render @messages %>
+  <%= render @topic.messages %>
 </section>
 
 <div>
-  <%= form_for [@room, @topic] do |form| %>
+  <%= form_for [@topic, @subtopic] do |form| %>
     <%= form.label :title, "New topic: " %>
     <%= form.text_field :title %>
     <%= form.submit "Create" %>
@@ -17,7 +18,7 @@
 </div>
 
 <div>
-  <%= form_for [@room, @message] do |form| %>
+  <%= form_for [@topic, @message] do |form| %>
     <%= form.label :body, "Message: " %>
     <%= form.text_area :body %>
     <%= form.submit "Send" %>
