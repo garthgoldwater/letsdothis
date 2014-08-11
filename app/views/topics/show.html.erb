@@ -4,31 +4,33 @@
     signed in as: <%= current_handle %>
   <%= link_to "Log Out of this room", [@room, :room_session], method: :delete %>
 </nav>
+<section class="app">
 
-<section class="chat">
-  <section class="messages">
-    <%= render @topic.messages %>
-  </section>
+  <section class="chat">
+    <section class="messages">
+      <%= render @topic.messages %>
+    </section>
 
-  <section class="input">
-    <div>
-      <%= form_for [@topic, @subtopic] do |form| %>
-        <%= form.label :title, "New topic: " %>
-        <%= form.text_field :title %>
-        <%= form.submit "Create" %>
-      <% end %>
-    </div>
+    <section class="input">
+      <div>
+        <%= form_for [@topic, @subtopic] do |form| %>
+          <%= form.label :title, "New topic: " %>
+          <%= form.text_field :title %>
+          <%= form.submit "Create" %>
+        <% end %>
+      </div>
 
-    <div>
-      <%= form_for [@topic, @message] do |form| %>
-        <%= form.label :body, "Message: " %>
-        <%= form.text_area :body %>
-        <%= form.submit "Send" %>
-      <% end %>
-    </div>
+      <div>
+        <%= form_for [@topic, @message] do |form| %>
+          <%= form.label :body, "Message: " %>
+          <%= form.text_area :body %>
+          <%= form.submit "Send" %>
+        <% end %>
+      </div>
+    </section>
   </section>
 
   <nav class="topic-tree">
-    <ul><%= render @topic.topics %></ul>
+    <div><ul><%= render @topic.topics %></ul></div>
   </nav>
 </section>
