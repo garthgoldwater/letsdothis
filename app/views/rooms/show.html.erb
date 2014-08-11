@@ -3,22 +3,30 @@
   <h3> signed in as: <%= current_handle %> </h3>
 </nav>
 
-<section class="messages">
-  <%= render @messages %>
+<section class="chat">
+  <section class="messages">
+    <%= render @messages %>
+  </section>
+
+  <section class="input">
+    <div>
+      <%= form_for [@room, @topic] do |form| %>
+        <%= form.label :title, "new topic: " %>
+        <%= form.text_field :title %>
+        <%= form.submit "create" %>
+      <% end %>
+    </div>
+
+    <div>
+      <%= form_for [@room, @message] do |form| %>
+        <%= form.label :body, "message: " %>
+        <%= form.text_area :body %>
+        <%= form.submit "send" %>
+      <% end %>
+    </div>
+  </section>
+
+  <nav class="topic-tree">
+    <ul><%= render @room.top_level_topics %></ul>
+  </nav>
 </section>
-
-<div>
-  <%= form_for [@room, @topic] do |form| %>
-    <%= form.label :title, "New topic: " %>
-    <%= form.text_field :title %>
-    <%= form.submit "Create" %>
-  <% end %>
-</div>
-
-<div>
-  <%= form_for [@room, @message] do |form| %>
-    <%= form.label :body, "Message: " %>
-    <%= form.text_area :body %>
-    <%= form.submit "Send" %>
-  <% end %>
-</div>
