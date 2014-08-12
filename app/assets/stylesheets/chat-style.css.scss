@@ -4,9 +4,12 @@
 
 .chat {
   @include span-columns(8);
+  
 }
 
 .topic-tree {
-  @include span-columns(2);
+  @include span-columns(4);
   @include omega();
+  overflow: hidden;
 }
+

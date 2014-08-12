@@ -6,6 +6,10 @@
 </nav>
 <section class="app">
 
+  <nav class="topic-tree">
+    <div><ul><%= render @topic.topics %></ul></div>
+  </nav>
+
   <section class="chat">
     <section class="messages">
       <%= render @topic.messages %>
@@ -29,8 +33,4 @@
       </div>
     </section>
   </section>
-
-  <nav class="topic-tree">
-    <div><ul><%= render @topic.topics %></ul></div>
-  </nav>
 </section>
