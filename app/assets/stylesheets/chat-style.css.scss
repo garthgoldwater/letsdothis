@@ -3,13 +3,15 @@
 }
 
 .chat {
-  @include span-columns(8);
-  
+  @include span-columns(5);
 }
 
 .topic-tree {
-  @include span-columns(4);
+  @include span-columns(2);
   @include omega();
   overflow: hidden;
 }
 
+.document {
+  @include span-columns(5);
+}

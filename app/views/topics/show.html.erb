@@ -10,6 +10,10 @@
     <div><ul><%= render @topic.topics %></ul></div>
   </nav>
 
+  <section class="document">
+    <%= render @topic.display_document %>
+  </section>
+
   <section class="chat">
     <section class="messages">
       <%= render @topic.messages %>
