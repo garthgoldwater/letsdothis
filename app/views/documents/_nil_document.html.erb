@@ -1,1 +1,7 @@
 no document created yet
+
+<%= form_for [topic, document] do |f| %>
+  <%= f.label :body, "Document Body: "%>
+  <%= f.text_area :body %>
+  <%= f.submit "Create Document" %>
+<% end %>

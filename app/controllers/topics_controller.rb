@@ -11,6 +11,7 @@ class TopicsController < ApplicationController
     @subtopic = Topic.new
     @room = @topic.room
     @message = Message.new
+    @document = @topic.document || Document.new
   end
 
   private

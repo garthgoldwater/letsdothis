@@ -4,6 +4,7 @@
     signed in as: <%= current_handle %>
   <%= link_to "Log Out of this room", [@room, :room_session], method: :delete %>
 </nav>
+
 <section class="app">
 
   <nav class="topic-tree">
@@ -11,7 +12,7 @@
   </nav>
 
   <section class="document">
-    <%= render @topic.display_document %>
+    <%= render @topic.display_document, topic: @topic, document: @document %>
   </section>
 
   <section class="chat">
