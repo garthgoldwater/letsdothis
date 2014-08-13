@@ -13,7 +13,18 @@ class Topic < ActiveRecord::Base
     topic_parent
   end
 
-  def display_document
-    document || "documents/nil_document"
+  def self.documents
+    Document.where(topic_ids: topic_ids).order(created_at: :asc)
+  end
+
+  def compile_document
+    document + topics.compile_documents
+  end
+
+  def self.compile_documents
+    subtopics = topics.where(topic_parent_id: topic_id).order(created_at: :asc)
+    subtopics.each do |topic|
+      topic.compile_document
+    end
   end
 end

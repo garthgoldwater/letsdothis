@@ -11,18 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140812153054) do
+ActiveRecord::Schema.define(version: 20140813180207) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "documents", force: true do |t|
-    t.integer  "topic_id",                                           null: false
-    t.text     "body",       default: "nothing in the document yet", null: false
-    t.datetime "created_at",                                         null: false
-    t.datetime "updated_at",                                         null: false
+    t.integer  "topic_id",   null: false
+    t.text     "body",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "room_id",    null: false
   end
 
+  add_index "documents", ["room_id"], name: "index_documents_on_room_id", using: :btree
   add_index "documents", ["topic_id"], name: "index_documents_on_topic_id", using: :btree
 
   create_table "messages", force: true do |t|

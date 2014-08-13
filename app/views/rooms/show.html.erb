@@ -1,14 +1,17 @@
-<nav>
-  <%= link_to "Log out of ' #{@room.name} '", [@room, :room_session], method: :delete %>
-  <h3> signed in as: <%= current_handle %> </h3>
-</nav>
-
-<section class="app">
-
-  <nav class="topic-tree">
-    <div><ul><%= render @room.top_level_topics %></ul></div>
+<section id="container">
+  <nav>
+    <%= link_to "Log out of ' #{@room.name} '", [@room, :room_session], method: :delete %>
+    <h3> signed in as: <%= current_handle %> </h3>
   </nav>
 
+
+  <nav class="topic-tree">
+    <h4>Table of Contents<h4>
+        <div><ul><%= render @room.top_level_topics %></ul></div>
+  </nav>
+
+  <section class="document">
+    <%= render @room.document %>
   <section class="chat">
     <section class="messages">
       <%= render @messages %>

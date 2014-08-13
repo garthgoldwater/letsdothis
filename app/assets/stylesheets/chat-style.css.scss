@@ -8,8 +8,9 @@
 
 .topic-tree {
   @include span-columns(2);
-  @include omega();
-  overflow: hidden;
+  ul{
+    overflow: scroll;
+  }
 }
 
 .document {
