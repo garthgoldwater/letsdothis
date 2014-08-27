@@ -1,0 +1,20 @@
+<section id="container">
+  <nav>
+    Topic: <%= @document.title %> in the <%= link_to "'#{@group.name}' group", [@group, @group.document] %>
+    <% if @document.parent_document %>
+      Parent Topic: <%= link_to @document.parent_document.title, [@document.group, @document.parent_document] %>
+    <% end %>
+    <%= link_to "Log out of '#{@group.name}'", [@group, :group_session], method: :delete %>
+    <h3> signed in as: <%= current_handle %> </h3>
+  </nav>
+
+
+  <nav class="topic-tree">
+    <h4>Table of Contents<h4>
+        <div><ul><%= render partial: "toc_item", collection: @subdocuments %></ul></div>
+  </nav>
+
+  <section class="document">
+    <%= render @group.document %>
+  </section>
+</section>

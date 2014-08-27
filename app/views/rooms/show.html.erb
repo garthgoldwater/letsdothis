@@ -1,17 +1,17 @@
 <section id="container">
   <nav>
-    <%= link_to "Log out of ' #{@room.name} '", [@room, :room_session], method: :delete %>
+    <%= link_to "Log out of ' #{@group.name} '", [@room, :room_session], method: :delete %>
     <h3> signed in as: <%= current_handle %> </h3>
   </nav>
 
 
   <nav class="topic-tree">
     <h4>Table of Contents<h4>
-        <div><ul><%= render @room.top_level_topics %></ul></div>
+        <div><ul><%= render @group.top_level_topics %></ul></div>
   </nav>
 
   <section class="document">
-    <%= render @room.document %>
+    <%= render @group.document %>
   <section class="chat">
     <section class="messages">
       <%= render @messages %>
@@ -19,7 +19,7 @@
 
     <section class="input">
       <div>
-        <%= form_for [@room, @topic] do |form| %>
+        <%= form_for [@group, @topic] do |form| %>
           <%= form.label :title, "new topic: " %>
           <%= form.text_field :title %>
           <%= form.submit "create" %>
@@ -27,7 +27,7 @@
       </div>
 
       <div>
-        <%= form_for [@room, @message] do |form| %>
+        <%= form_for [@group, @message] do |form| %>
           <%= form.label :body, "message: " %>
           <%= form.text_area :body %>
           <%= form.submit "send" %>

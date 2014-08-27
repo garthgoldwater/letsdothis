@@ -1,1 +1,29 @@
-<%= document.body %>
+<li>
+  <section class="document">
+    <div>
+      <%= link_to document.title, [document.group, document] %>
+      <%= document.body %>
+    </div>
+
+    <div class="chat">
+      <%= render document.messages.oldest_first %>
+      <div class="message-form">
+        <%= form_for [document, new_message] do |form| %>
+          <%= form.label :body, "message: " %>
+          <%= form.text_area :body %>
+          <%= form.submit "send" %>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="subdocument-form">
+      <%= form_for [document, new_document] do |form| %>
+        <%= form.label :title, "new subtopic: " %>
+        <%= form.text_field :title %>
+        <%= form.submit "create" %>
+      <% end %>
+    </div>
+
+    <ul><%= render document.subdocuments %></ul>
+  </section>
+</li>

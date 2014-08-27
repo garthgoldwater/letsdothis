@@ -1,0 +1,5 @@
+<li>
+  <%= link_to toc_item.title, [toc_item.group, toc_item] %>
+  <div><ul><%= render partial: "toc_item", collection: toc_item.subdocuments %><ul></div>
+</li>
+

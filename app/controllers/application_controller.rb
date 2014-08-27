@@ -1,35 +1,35 @@
 class ApplicationController < ActionController::Base
-  # Prevent CSRF attacks by raising an exception.
-  # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
   private
 
   def current_session
-    @room_session ||= RoomSession.new(session, Room.find(find_room_id))
+    @group_session ||= GroupSession.new(session, Group.find(group_id))
   end
 
   def current_handle
-    session[find_room_id]
+    session[group_id]
   end
 
-  def find_room_id
-    room_id || find_topic_room_id
+  def group_id
+    params[:group_id] || find_document_group_id || params[:id]
   end
 
-  def find_topic_room_id
-    find_topic.room_id
+  def find_document_group_id
+    document = Document.find_by(id: params[:document_id])
+    document.group.id if document
   end
 
-  def find_topic
-    Topic.find_by(id: params[:topic_id])
+  def new_message
+    Message.new
   end
 
-  def room_id
-    params[:room_id] || params[:id]
+  def new_document
+    Document.new
   end
 
+  helper_method :new_document
+  helper_method :new_message
   helper_method :current_session
   helper_method :current_handle
-  helper_method :find_topic
 end

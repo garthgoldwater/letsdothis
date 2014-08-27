@@ -11,43 +11,44 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140813180207) do
+ActiveRecord::Schema.define(version: 20140827053958) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "documents", force: true do |t|
-    t.integer  "topic_id",   null: false
-    t.text     "body",       null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer  "room_id",    null: false
+    t.text     "body"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.integer  "group_id",           null: false
+    t.string   "title",              null: false
+    t.integer  "parent_document_id"
   end
 
-  add_index "documents", ["room_id"], name: "index_documents_on_room_id", using: :btree
-  add_index "documents", ["topic_id"], name: "index_documents_on_topic_id", using: :btree
+  add_index "documents", ["group_id"], name: "index_documents_on_group_id", using: :btree
+  add_index "documents", ["parent_document_id"], name: "index_documents_on_parent_document_id", using: :btree
 
-  create_table "messages", force: true do |t|
-    t.integer  "room_id",             null: false
-    t.text     "body",                null: false
-    t.string   "handle",              null: false
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
-    t.integer  "message_parent_id",   null: false
-    t.string   "message_parent_type", null: false
-  end
-
-  add_index "messages", ["handle"], name: "index_messages_on_handle", using: :btree
-  add_index "messages", ["message_parent_id", "message_parent_type"], name: "index_messages_on_message_parent_id_and_message_parent_type", using: :btree
-  add_index "messages", ["room_id"], name: "index_messages_on_room_id", using: :btree
-
-  create_table "rooms", force: true do |t|
+  create_table "groups", force: true do |t|
     t.string   "name",                           null: false
     t.string   "password_digest",                null: false
     t.boolean  "private",         default: true, null: false
     t.datetime "created_at",                     null: false
     t.datetime "updated_at",                     null: false
+    t.integer  "document_id"
   end
+
+  add_index "groups", ["document_id"], name: "index_groups_on_document_id", using: :btree
+
+  create_table "messages", force: true do |t|
+    t.integer  "document_id", null: false
+    t.text     "body",        null: false
+    t.string   "handle",      null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "messages", ["document_id"], name: "index_messages_on_document_id", using: :btree
+  add_index "messages", ["handle"], name: "index_messages_on_handle", using: :btree
 
   create_table "topics", force: true do |t|
     t.text     "title",             null: false

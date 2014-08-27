@@ -1,17 +1,13 @@
 Rails.application.routes.draw do
   root "landings#show"
 
-  resources :rooms, only: [:create, :show] do
-    resource :room_session, only: [:new, :create, :destroy]
-    resources :messages, only: [:create]
-    resources :topics, only: [:create, :show] do
-      resource :document, only: [:create]
-    end
+  resources :groups, only: [:create, :show] do
+    resource :group_session, only: [:new, :create, :destroy]
+    resources :documents, only: [:create, :new, :show]
   end
 
-  resources :topics, only: [:show, :update] do
+  resources :documents, only: [] do
     resources :messages, only: [:create]
-    resources :topics, only: [:create]
-    resource :document, only: [:create, :update]
+    resources :documents, only: [:create]
   end
 end

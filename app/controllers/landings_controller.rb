@@ -1,6 +1,6 @@
 class LandingsController < ApplicationController
   def show
-    @room = Room.new
-    @rooms = Room.all
+    @group = Group.new
+    @groups = Group.all
   end
 end
