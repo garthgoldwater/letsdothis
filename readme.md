@@ -14,13 +14,13 @@ of user interface experiments that I'm calling "Ergonomic Data Structures".
 
 ##Example Use Case
 Have you ever tried to plan anything over Facebook chat that involved:  
-  A. More than three people, or  
-  B. More planning than going out to see a movie?  
+  + More than three people, or  
+  + More planning than going out to see a movie?  
 
 It's a nightmare. The two most obvious examples are potlucks and camping trips.
 You need to keep track of who is bringing what and you have a set of
 things that definitely need to be brought by someone. So Let's Do This (again, please help me with the name) lets you
-collaborate on a group outline with accompanying chats.
+collaborate on a group outline with accompanying chats.  
 
 Hopefully it will become robust enough that you can even "spin off" smaller
 groups from larger ones. So say you're planning one of those gargantuan family
@@ -34,7 +34,7 @@ to.
 
 There are two major motivations for this project:
 
-1. "Ergonomic Data Structures"
+1. "Ergonomic Data Structures"  
   I don't know if you're aware, but it's become [very
 hip](http://vimeo.com/64895205) to [point out](http://vimeo.com/36579366) that,
 in the world of software,
@@ -76,15 +76,15 @@ mostly serves as a cover for netting emails. You only need to give a group a
 password and then you can go.
   This (and some other decisions) embodies a commitment I've made to making
 **frictionless** apps. We ought interrupt the user as little as possible.
-*"Isn't that just good UI/UX design?"  
++ "Isn't that just good UI/UX design?"  
   No. UI/UX focuses on solid metaphors, understandable interfaces, and
 predictable interactions. I'm talking about **user interface engineering**. This
 is an arbitrary distinction I'm making because I identify as a maverick, a
 renegade, and a cop who doesn't play by the rules.
 
 ##Mildly Interesting Code Features
-*I've eliminated a few of them in the course of a refactor already
-*I **am** using recursive partials. There are some tricky things about them. You
++ I've eliminated a few of them in the course of a refactor already
++ I **am** using recursive partials. There are some tricky things about them. You
 can look at the document partial if you'd like.
 
 ##Lessons Learned
