@@ -89,7 +89,7 @@ can look at the document partial if you'd like.
 
 ##Lessons Learned
 
-*I think we should rename the Minimum Viable Product the Minimum-Effort Core
++ I think we should rename the Minimum Viable Product the Minimum-Effort Core
 Mechanic. "Core mechanic" is a vocab term I'm stealing from a particularly good
 [game design textbook](http://en.wikipedia.org/wiki/Rules_of_Play), and it
 basically means "the thing that a player does repeatedly in a game" -- in poker,
@@ -101,20 +101,20 @@ overfocused on the "no user accounts" selling point and spent a lot of time
 fiddling with signed cookies and sessions and naming schemes when I could've
 just added a GuestsController after I had figured out the interface that these
 theoretical users would be using.
-*If you're going to start a project to demonstrate skills in some area, pick a
++ If you're going to start a project to demonstrate skills in some area, pick a
 project that demonstrates that you can do some of the stuff other people are
 doing, not stuff you think would be cool. It's easier and more impressive.
 
 ##Roadmap
-*Obviously, the interface needs to be worked out. That's going to happen in
++ Obviously, the interface needs to be worked out. That's going to happen in
 the next week or two as I learn ember.js, since this app is a good candidate for
 the "single-page" style that all the cool teens are clamoring for.
-*Since this is supposed to be a chat app, it should be using websockets.
++ Since this is supposed to be a chat app, it should be using websockets.
 Oops. I've used [pusher](https://pusher.com/) before so I might try rolling my
 own WebSockets this time.
-*On a similar front, I need to work out what notifications look like in a
++ On a similar front, I need to work out what notifications look like in a
 hierarchical context. Should subdocuments notify their parent documents?
-*All the obvious bells and whistles -- e.g.: file upload, email notifications,
++ All the obvious bells and whistles -- e.g.: file upload, email notifications,
 user accounts to save groups, tags, multiple documents for each group, etc
-*I'm going to clean up the recent commit messages tomorrow. Today's been
++ I'm going to clean up the recent commit messages tomorrow. Today's been
 pretty crazy.
