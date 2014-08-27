@@ -2,18 +2,46 @@
   @include outer-container;
 }
 
-.chat {
-}
-
 .topic-tree {
-  @include span-columns(2);
-  ul{
+  @include span-columns(3);
+  font-size: 1em;
+  ul {
     overflow: scroll;
   }
 }
 
 .document {
-  @include span-columns(10);
+  @include span-columns(9);
+  @include omega();
 }
 
+.group-nav-item {
+  @include span-columns(4);
+  font-size: 1.2em;
+  @include omega(3n);
+}
 
+.topic-nav-item {
+  @include span-columns(6);
+  @include omega(2n);
+}
+
+.chat {
+  border: 1px solid;
+  border-radius: 4px;
+  padding: 5px;
+  margin: 5px;
+  textarea {
+    width: 85%;
+  }
+}
+
+.subdocument-form {
+  margin: 5px;
+}
+
+section.document{
+  div.document {
+    margin: 5px;
+  }
+}

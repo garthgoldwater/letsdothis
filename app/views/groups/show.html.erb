@@ -1,0 +1,17 @@
+<section id="container">
+
+  <nav class="group-nav">
+    <span class="group-nav-item">The '<%= @group.name %>' group</span>
+    <span class="group-nav-item">signed in as: <%= current_handle %></span>
+    <span class="group-nav-item"><%= link_to "Log out", [@group, :group_session], method: :delete %></span>
+  </nav>
+
+  <nav class="topic-tree">
+    <div>Table of Contents</div>
+        <div><ul><%= render partial: "documents/toc_item", collection: @group.document.subdocuments %></ul></div>
+  </nav>
+
+  <section class="document">
+    <%= render @group.document %>
+  </section>
+</section>

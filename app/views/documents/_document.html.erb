@@ -1,8 +1,16 @@
 <li>
   <section class="document">
-    <div>
+    <div class="document">
       <%= link_to document.title, [document.group, document] %>
       <%= document.body %>
+    </div>
+
+    <div class="subdocument-form">
+      <%= form_for [document, new_document] do |form| %>
+        <%= form.label :title, "new subtopic: " %>
+        <%= form.text_field :title %>
+        <%= form.submit "create" %>
+      <% end %>
     </div>
 
     <div class="chat">
@@ -14,14 +22,6 @@
           <%= form.submit "send" %>
         <% end %>
       </div>
-    </div>
-
-    <div class="subdocument-form">
-      <%= form_for [document, new_document] do |form| %>
-        <%= form.label :title, "new subtopic: " %>
-        <%= form.text_field :title %>
-        <%= form.submit "create" %>
-      <% end %>
     </div>
 
     <ul><%= render document.subdocuments %></ul>

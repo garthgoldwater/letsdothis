@@ -6,6 +6,10 @@ class GroupsController < ApplicationController
     redirect_to [group, group.document]
   end
 
+  def show
+    @group = Group.find(params[:id])
+  end
+
   def group_params
     params.require(:group).permit(
       :name,
