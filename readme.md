@@ -116,3 +116,5 @@ own WebSockets this time.
 hierarchical context. Should subdocuments notify their parent documents?
   *All the obvious bells and whistles -- e.g.: file upload, email notifications,
 user accounts to save groups, tags, multiple documents for each group, etc
+  *I'm going to clean up the recent commit messages tomorrow. Today's been
+pretty crazy.
