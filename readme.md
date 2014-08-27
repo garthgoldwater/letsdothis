@@ -8,14 +8,14 @@ weeks.__
 capstone project from thoughtbot's Metis program (a 12-week ruby-on-rails
 intensive). It aims to help people plan a group activities very quickly and with
 minimal friction. It will be on heroku once I finish the first round of styling.
-It is part of a larger set of experiments I'm going to be doing for the next few
-months as I continue to hone my ruby and rails skills. It's also part of a set
+It is part of a larger set of exercises I'm going to be doing for the next few
+months as I continue to hone my ruby/rails/js skills. It's also part of a set
 of user interface experiments that I'm calling "Ergonomic Data Structures".
 
 ##Example Use Case
-Have you ever tried to plan anything over Facebook chat that involved:
-  A. More than three people, or
-  B. More planning than going out to see a movie?
+Have you ever tried to plan anything over Facebook chat that involved:  
+  A. More than three people, or  
+  B. More planning than going out to see a movie?  
 
 It's a nightmare. The two most obvious examples are potlucks and camping trips.
 You need to keep track of who is bringing what and you have a set of
@@ -59,13 +59,13 @@ structures (I'm not [alone](https://www.youtube.com/watch?v=Cym4TZwTCNU
   So I'm trying to design apps that don't use those fossils in
 expected ways--I want my strings to interact with each other, and have an
 algebra, of sorts. Let's Do This isn't a particularly fantastic example of this
-kind of design, but it is a start. That's why chats are *related* to subsections
+kind of design, but it is a start. That's why chats are **related** to subsections
 of the outline, and it's why the backbone of the app is the outline's recursive
-structure. Rather than encoding structural information inside the *data*, I'm
+structure. Rather than encoding structural information inside the **data**, I'm
 trying to keep that structural information inside the *interface* and the
-*code*. Compare my approach to the approach of markdown: markdown *parses*
-strings to *display form*, whereas I'm trying to *interpret semantics* and
-*display relationships*. This sounds pretentious for an app because it is. My
+**code**. Compare my approach to the approach of markdown: markdown *parses*
+strings to **display form**, whereas I'm trying to *interpret semantics* and
+**display relationships**. This sounds pretentious for an app because it is. My
 goal is to build apps that embody this pretense until I figure out how to
 achieve it "on the regular".
 
@@ -75,21 +75,21 @@ account for this?! NO. The "user" metaphor has been lazily overapplied and
 mostly serves as a cover for netting emails. You only need to give a group a
 password and then you can go.
   This (and some other decisions) embodies a commitment I've made to making
-*frictionless* apps. We ought interrupt the user as little as possible.
-  *"Isn't that just good UI/UX design?"
+**frictionless** apps. We ought interrupt the user as little as possible.
+*"Isn't that just good UI/UX design?"  
   No. UI/UX focuses on solid metaphors, understandable interfaces, and
 predictable interactions. I'm talking about *user interface engineering*. This
 is an arbitrary distinction I'm making because I identify as a maverick, a
 renegade, and a cop who doesn't play by the rules.
 
 ##Mildly Interesting Code Features
-  *I've eliminated a few of them in the course of a refactor already
-  *I *am* using recursive partials. There are some tricky things about them. You
-can look at documents/_document.html.erb if you like.
+*I've eliminated a few of them in the course of a refactor already
+*I **am** using recursive partials. There are some tricky things about them. You
+can look at the document partial if you'd like.
 
 ##Lessons Learned
 
-  *I think we should rename the Minimum Viable Product the Minimum-Effort Core
+*I think we should rename the Minimum Viable Product the Minimum-Effort Core
 Mechanic. "Core mechanic" is a vocab term I'm stealing from a particularly good
 [game design textbook](http://en.wikipedia.org/wiki/Rules_of_Play), and it
 basically means "the thing that a player does repeatedly in a game" -- in poker,
@@ -101,20 +101,20 @@ overfocused on the "no user accounts" selling point and spent a lot of time
 fiddling with signed cookies and sessions and naming schemes when I could've
 just added a GuestsController after I had figured out the interface that these
 theoretical users would be using.
-  *If you're going to start a project to demonstrate skills in some area, pick a
+*If you're going to start a project to demonstrate skills in some area, pick a
 project that demonstrates that you can do some of the stuff other people are
 doing, not stuff you think would be cool. It's easier and more impressive.
 
 ##Roadmap
-  *Obviously, the interface needs to be worked out. That's going to happen in
+*Obviously, the interface needs to be worked out. That's going to happen in
 the next week or two as I learn ember.js, since this app is a good candidate for
 the "single-page" style that all the cool teens are clamoring for.
-  *Since this is supposed to be a chat app, it should be using websockets.
+*Since this is supposed to be a chat app, it should be using websockets.
 Oops. I've used [pusher](https://pusher.com/) before so I might try rolling my
 own WebSockets this time.
-  *On a similar front, I need to work out what notifications look like in a
+*On a similar front, I need to work out what notifications look like in a
 hierarchical context. Should subdocuments notify their parent documents?
-  *All the obvious bells and whistles -- e.g.: file upload, email notifications,
+*All the obvious bells and whistles -- e.g.: file upload, email notifications,
 user accounts to save groups, tags, multiple documents for each group, etc
-  *I'm going to clean up the recent commit messages tomorrow. Today's been
+*I'm going to clean up the recent commit messages tomorrow. Today's been
 pretty crazy.
