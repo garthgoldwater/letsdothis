@@ -19,7 +19,7 @@ Have you ever tried to plan anything over Facebook chat that involved:
 
 It's a nightmare. The two most obvious examples are potlucks and camping trips.
 You need to keep track of who is bringing what and you have a set of
-requirements. So Let's Do This (again, please help me with the name) lets you
+things that definitely need to be brought by someone. So Let's Do This (again, please help me with the name) lets you
 collaborate on a group outline with accompanying chats.
 
 Hopefully it will become robust enough that you can even "spin off" smaller
@@ -46,13 +46,13 @@ I'm not saying that this is a [new](http://en.wikipedia.org/wiki/Alan_Kay)
 [argument](http://en.wikipedia.org/wiki/Douglas_Engelbart), but it seems to be
 resurging in popularity among people who actually build things.  
   There are a lot of interesting ways to approach this problem, but I am, in the
-grand scheme of things, a *ruby newbie* (a rhyme--how *cute*), so I am
+grand scheme of things, a *ruby newbie* (a rhyme--how **cute**), so I am
 approaching it in a very literal sense. A lot of rails apps look like database
 backends dressed in a fancy costume. That's well and good for many problems, but
 I think that (from my experience as a user of web apps) the limitations of a
 database system designed under the time and space constraints of [the dark ages,
 computationally speaking](http://en.wikipedia.org/wiki/SQL#History) often
-compels us to use what I'd call *dead data structures*--strings, integers, and
+compels us to use what I'd call **dead data structures**--strings, integers, and
 other remnants of the eras when we really needed to care about storage
 structures (I'm not [alone](https://www.youtube.com/watch?v=Cym4TZwTCNU
 ) in this belief).  
@@ -62,12 +62,12 @@ algebra, of sorts. Let's Do This isn't a particularly fantastic example of this
 kind of design, but it is a start. That's why chats are **related** to subsections
 of the outline, and it's why the backbone of the app is the outline's recursive
 structure. Rather than encoding structural information inside the **data**, I'm
-trying to keep that structural information inside the *interface* and the
+trying to keep that structural information inside the **interface** and the
 **code**. Compare my approach to the approach of markdown: markdown *parses*
-strings to **display form**, whereas I'm trying to *interpret semantics* and
+strings to **display form**, whereas I'm trying to **interpret semantics** and
 **display relationships**. This sounds pretentious for an app because it is. My
-goal is to build apps that embody this pretense until I figure out how to
-achieve it "on the regular".
+goal is to build apps that hold this pretense until I figure out how to
+achieve it authentically, "on the regular".
 
 2. Why does every [redacted] web app promising to make my life easier demand
 that I jump through a bunch of hoops before I can use it? Do I NEED a user
@@ -78,7 +78,7 @@ password and then you can go.
 **frictionless** apps. We ought interrupt the user as little as possible.
 *"Isn't that just good UI/UX design?"  
   No. UI/UX focuses on solid metaphors, understandable interfaces, and
-predictable interactions. I'm talking about *user interface engineering*. This
+predictable interactions. I'm talking about **user interface engineering**. This
 is an arbitrary distinction I'm making because I identify as a maverick, a
 renegade, and a cop who doesn't play by the rules.
 
