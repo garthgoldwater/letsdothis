@@ -8,6 +8,9 @@ class GroupsController < ApplicationController
 
   def show
     @group = Group.find(params[:id])
+    if ! current_session.logged_in?(@group)
+      redirect_to [:new, @group, :group_session]
+    end
   end
 
   def group_params
